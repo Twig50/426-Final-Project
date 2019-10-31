@@ -5,3 +5,9 @@
     baby-blue-background {
         background-color: #7da7bd;
     }
+
+    h1 {
+        color: #fdfdfe;
+	    font-family: "Source Sans Pro", sans-serif;
+        font-weight: 600;
+    }
