@@ -6,11 +6,32 @@
         padding: 0;
     }
 
-    h1 {
-        color: #fdfdfe;
+    #title {
+        position: absolute;
+        top: -35px;
+        left: 32px;
+        color: white;
         font-family: "Source Sans Pro", sans-serif;
         text-shadow: 0px 0px 5px #000000;
         font-weight: 600;
+        font-size: 135px;
+        font-weight: 200;
+        letter-spacing: -10px;
+        word-spacing: -15px;
+        transform: scalex(1.09);
+    }
+
+    #sidebar {
+        height: 1080px;
+        width: 471px;
+        background-image: url("sidebar.png");
+        background-repeat: no-repeat;
+    }
+    #sidebar-extension{
+        height: 100%;
+        width: 471px;
+        background-image: url("sidebar-extension.png");
+        background-repeat: repeat-y;
     }
 
     html {
