@@ -1,0 +1,23 @@
+{
+  "name": "426-final-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Twig50/426-Final-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Twig50/426-Final-Project/issues"
+  },
+  "homepage": "https://github.com/Twig50/426-Final-Project#readme",
+  "dependencies": {
+    "bulma": "^0.8.0",
+    "jquery": "^3.4.1"
+  }
+}

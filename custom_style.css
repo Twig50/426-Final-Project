@@ -1,13 +1,20 @@
     body {
-        background-color: #b8e5f7;
-    }
-    
-    baby-blue-background {
-        background-color: #7da7bd;
+        background-image: url("grid-bg.png");
+        background-size: cover;
+        height: 100%;
+        margin: 0;
+        padding: 0;
     }
 
     h1 {
         color: #fdfdfe;
-	    font-family: "Source Sans Pro", sans-serif;
+        font-family: "Source Sans Pro", sans-serif;
+        text-shadow: 0px 0px 5px #000000;
         font-weight: 600;
+    }
+
+    html {
+        height: 100%;
+        background-color: #b8e5f7;
+        overflow: hidden;
     }
