@@ -9,16 +9,45 @@
     #title {
         position: absolute;
         top: -35px;
-        left: 32px;
+        left: 15px;
         color: white;
         font-family: "Source Sans Pro", sans-serif;
-        text-shadow: 0px 0px 5px #000000;
-        font-weight: 600;
+        text-shadow: 1px 1px 3px #142f47;
         font-size: 135px;
         font-weight: 200;
-        letter-spacing: -10px;
-        word-spacing: -15px;
-        transform: scalex(1.09);
+        letter-spacing: -12px;
+        word-spacing: -12px;
+        transform-origin: left;
+        transform: scalex(1.1);
+    }
+
+    #sidebar-menu{
+        padding: 10px;
+        position: absolute;
+        top: 140px;
+        left: 70px;
+    }
+
+    .sidebar-menu-item {
+        display: inline-block;
+        font-family: "FreeMono", monospace;
+        color: white;
+        text-shadow: 1px 1px 2px #142f47;
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 55px;
+        transform-origin: left;
+        transform: scalex(1.1);
+        transition: letter-spacing 0.5s;
+    }
+
+    .sidebar-menu-item:hover {
+        letter-spacing: 10px;
+        color: #f8fdff;
+    }
+
+    .sidebar-menu-item::first-letter {
+        color: #45ACE7;
     }
 
     #sidebar {
