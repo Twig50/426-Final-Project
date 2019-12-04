@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Twig50/426-Final-Project#readme",
   "dependencies": {
+    "@google/model-viewer": "^0.7.2",
     "bulma": "^0.8.0",
     "jquery": "^3.4.1"
   }
