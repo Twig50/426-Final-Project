@@ -14,6 +14,30 @@
     </head>
 
     <body>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-analytics.js"></script>
+
+        <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyD6FOQJU2DyCbgZ7GoVBUQ0UHHuhRDJBi8",
+            authDomain: "comp426-custom-back-end.firebaseapp.com",
+            databaseURL: "https://comp426-custom-back-end.firebaseio.com",
+            projectId: "comp426-custom-back-end",
+            storageBucket: "comp426-custom-back-end.appspot.com",
+            messagingSenderId: "945423397646",
+            appId: "1:945423397646:web:9314e96b0a09b10d5edd5f",
+            measurementId: "G-L9FTPJZ8ED"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        </script>
+        
         <model-viewer preload autoplay id=character-model src="character.gltf" background-image="full-bg.png" camera-orbit="-5deg 100deg 0.9m" camera-target="-.2m 1.15m 0m"></model-viewer>
         <p id="disclaimer">PLACEHOLDER <br> CHARACTER MODEL</p>
         <div id=sidebar>
