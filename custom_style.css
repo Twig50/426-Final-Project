@@ -1,5 +1,5 @@
     body {
-        /*background-image: url("grid-bg.png");*/
+        background-image: url("grid-bg.png");
         background-size: cover;
         height: 100%;
         margin: 0;
@@ -18,6 +18,36 @@
         }
     }
 
+    #root {
+        background-color: #142f4755;
+        overflow-y: auto;
+        overflow-x: hidden;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 30%;
+        right: 10%;
+        padding: 1% 2%;
+    }
+
+    #all-posts {
+        background-color: #00000055;
+        width:100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+
+    h1 {
+        color: white;
+        font-family: "Source Sans Pro", sans-serif;
+        text-shadow: 1px 1px 3px #142f47;
+        font-size: 100px;
+        font-weight: 200;
+        transform-origin: left;
+        letter-spacing: -5px;
+        transform: scalex(1.1);
+    }
+
     #character-model {
         position: fixed;
         top: -10%;
@@ -32,8 +62,6 @@
         animation: float 10s ease-in-out infinite;
     }
 
-    
-
     #disclaimer {
         position: fixed;
         right: 10%;
@@ -45,6 +73,7 @@
         text-shadow: 1px 1px 3px rgb(20,47,71,0.3);
         text-align: center;
         transform: rotate(-10deg);
+        user-select: none;
     }
 
     #title {
@@ -61,6 +90,7 @@
         transform-origin: left;
         transform: scalex(1.1);
         transition: color 0.3s, text-shadow 0.3s;
+        user-select: none;
     }
 
     #title:hover {
@@ -97,14 +127,20 @@
     }
 
     #sidebar {
-        height: 1080px;
-        width: 471px;
+        height:1080px;
+        width:25%;
+        max-width: 471px;
         background-image: url("sidebar.png");
         background-repeat: no-repeat;
+        max-zoom: 1;
+        min-zoom: 1;
     }
     #sidebar-extension{
+        position: absolute;
+        top: 1080px;
         height: 100%;
         width: 471px;
+        max-width: 471px;
         background-image: url("sidebar-extension.png");
         background-repeat: repeat-y;
     }
@@ -113,4 +149,19 @@
         height: 100%;
         background-color: #b8e5f7;
         overflow: hidden;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background-color: #00000065;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: white;
     }

@@ -13,7 +13,39 @@
         <link rel="stylesheet" href="custom_style.css">
     </head>
 
-    <body>
+    <body style="background-image: none">
+        <model-viewer preload autoplay id=character-model src="character.gltf" background-image="full-bg.png" camera-orbit="-5deg 100deg 0.9m" camera-target="-.2m 1.15m 0m"></model-viewer>
+        <p id="disclaimer">PLACEHOLDER <br> CHARACTER MODEL</p>
+        <div id=sidebar>
+            <!--<a href="index.html"><img id=title src="logo.png" alt="cqbeats"></a>-->
+            <a id="title" href="index.html">c qb ea t s</a>
+            <div id=sidebar-menu>
+                <a class="sidebar-menu-item" href="index.html" style="font-size: 45px; letter-spacing: 10px;">main</a> 
+                <br>
+                <a class="sidebar-menu-item">about</a>
+                <br>
+                <a class="sidebar-menu-item">characters</a>
+                <br>
+                <a class="sidebar-menu-item">tracks</a>
+                <br>
+                <a class="sidebar-menu-item" href="blog.html">blog</a>
+            </div>
+            <div id=sidebar-extension></div>
+        </div>
+
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+
+        <!-- Loads <model-viewer> for modern browsers: -->
+        <script type="module"
+        src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js">
+        </script>
+
+        <!-- Loads <model-viewer> for old browsers like IE11: -->
+        <script nomodule
+        src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js">
+        </script>
+
+
         <!-- The core Firebase JS SDK is always required and must be listed first -->
         <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
 
@@ -36,39 +68,6 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
-        </script>
-        
-        <model-viewer preload autoplay id=character-model src="character.gltf" background-image="full-bg.png" camera-orbit="-5deg 100deg 0.9m" camera-target="-.2m 1.15m 0m"></model-viewer>
-        <p id="disclaimer">PLACEHOLDER <br> CHARACTER MODEL</p>
-        <div id=sidebar>
-            <!--<a href="index.html"><img id=title src="logo.png" alt="cqbeats"></a>-->
-            <a id="title" href="index.html">c qb ea t s</a>
-            <div id=sidebar-menu>
-                <a class="sidebar-menu-item" href="index.html">main</a> 
-                <br>
-                <a class="sidebar-menu-item">about</a>
-                <br>
-                <a class="sidebar-menu-item">characters</a>
-                <br>
-                <a class="sidebar-menu-item">tracks</a>
-                <br>
-                <a class="sidebar-menu-item">blog</a>
-            </div>
-        </div>
-        <div id=sidebar-extension></div>
-        <div id="root"> <br>
-        </div>
-
-        <script src="node_modules/jquery/dist/jquery.js"></script>
-
-        <!-- Loads <model-viewer> for modern browsers: -->
-        <script type="module"
-        src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js">
-        </script>
-
-        <!-- Loads <model-viewer> for old browsers like IE11: -->
-        <script nomodule
-        src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js">
         </script>
     </body>
 </html>
