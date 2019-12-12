@@ -19,7 +19,10 @@ const loadPosts = async function() {
         
         const userRoot = new axios.create({ baseURL: "http://localhost:3000/user", headers: {"Authorization": "Bearer " + jwt}});
 
-        let result2 = await userRoot.get("/savedPosts");
+        let result2 = await userRoot.get("/savedPosts")
+        .catch( function () {
+            renderPosts(posts, []);
+        });
 
         let ids = result2.data.result.ids;
 
