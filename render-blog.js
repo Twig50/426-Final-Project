@@ -4,8 +4,6 @@ const publicRoot = new axios.create({ baseURL: "http://localhost:3000/public"});
 const loadPosts = async function() {
     let urlParams = new URLSearchParams(window.location.search);
 
-    $("#posts").empty();
-
     if (urlParams.has('post')) { 
         loadSinglePost(parseInt(urlParams.get('post')));
         return;
@@ -163,7 +161,13 @@ const renderComment = function (comment) {
 
     let commentFooter = document.createElement("div");
     commentFooter.setAttribute("class", "comment-footer");
-    commentFooter.innerText = comment.signature;
+    commentFooter.innerText = comment.signature + "  ";
+
+    let date = document.createElement ("span");
+    date.setAttribute("class", "date");
+    date.innerText = comment.date;
+
+    commentFooter.appendChild(date);
 
     commentDiv.appendChild(commentHeader);
     commentDiv.appendChild(commentCenter);
@@ -213,7 +217,36 @@ const renderCommentBox = function() {
 }
 
 
+const getDateTime = async function() {
+    let timeresponse = await axios({
+        method: 'GET',
+        url: "https://world-time2.p.rapidapi.com/ip",
+        headers: {
+            "x-rapidapi-host": "world-time2.p.rapidapi.com",
+	        "x-rapidapi-key": "c3adc3c5f6mshf17a6cac61ab8cbp13e587jsn3be1d3df306f"
+        }
+    });
 
+    let time = timeresponse.data;
+
+    let day = "";
+
+    switch (time.day_of_week) {
+        case 1: day = "Monday"; break;
+        case 2: day = "Tuesday"; break;
+        case 3: day = "Wednesday"; break;
+        case 4: day = "Thursday"; break;
+        case 5: day = "Friday"; break;
+        case 6: day = "Saturday"; break;
+        case 7: day = "Sunday"; break;
+    }
+    
+    let dateDay = time.datetime.slice(5,7);
+    let dateYear = time.datetime.slice(0,4);
+    let dateMonth = time.datetime.slice(8, 10);
+
+    return (day + ", " + dateMonth + "/" + dateDay + "/" + dateYear);
+}
 
 const postComment = async function(event) {
     event.preventDefault();
@@ -243,15 +276,19 @@ const postComment = async function(event) {
     let signature = response.data.user.data.signature;
     let urlParams = new URLSearchParams(window.location.search);
     let id = parseInt(urlParams.get("post"));
+    let date = await getDateTime();
 
     const privateRoot = new axios.create({ baseURL: "http://localhost:3000/private", headers: {"Authorization": "Bearer " + jwt}});
+
+
 
     await privateRoot.post('/blogComments/comments', {
         data: {
             parentID: id,
             author: username,
             body: body,
-            signature: signature
+            signature: signature,
+            date: date
         },
         type: "merge"
     });

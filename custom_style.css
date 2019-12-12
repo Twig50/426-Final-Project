@@ -165,6 +165,16 @@
         color: gray;
     }
 
+    .date {
+        font-style: normal;
+        margin: 25px 5px;
+        padding: 3px 10px;
+
+        border: 0px;
+        border-left: 1px;
+        border-style: solid;
+    }
+
     .register {
         background-color: white;
         box-shadow: 1px 1px 5px #00000055;
