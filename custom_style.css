@@ -120,6 +120,14 @@
         color: gray;
     }
 
+    .comments .content {
+        margin: 10px;
+    }
+
+    .comments .content .field {
+        margin: 5px 0px;
+    }
+
     .comment {
         background-color: #deebf5;
         margin: 10px 10px 10px 10px;
@@ -155,6 +163,16 @@
         font-style: italic;
         text-align: right;
         color: gray;
+    }
+
+    .date {
+        font-style: normal;
+        margin: 25px 5px;
+        padding: 3px 10px;
+
+        border: 0px;
+        border-left: 1px;
+        border-style: solid;
     }
 
     .register {
