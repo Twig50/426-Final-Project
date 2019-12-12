@@ -86,6 +86,25 @@
         transform: scalex(1.1);
     }
 
+    #account-tab {
+        position: fixed;
+        top: -1px;
+        right: -1px;
+        width: auto;
+        max-width: 9.5%;
+        text-align: right;
+        color: white;
+        padding: 3px 10px 5px 15px;
+        background-color: #142f47AA;
+        border-bottom-left-radius: 15px;
+        border: 1px;
+        border-style: solid;
+        border-color: gray;
+    }
+    #account-tab a {
+        color: #62b8ee;
+    }
+
     #character-model {
         position: fixed;
         top: -10%;
