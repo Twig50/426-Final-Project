@@ -16,17 +16,39 @@ const loadPosts = async function() {
 
     let posts = result.data.result.posts;
 
-    renderPosts(posts);
+    if (window.localStorage.getItem("jwt") != null) {
+        let jwt = window.localStorage.getItem("jwt");
+        
+        const userRoot = new axios.create({ baseURL: "http://localhost:3000/user", headers: {"Authorization": "Bearer " + jwt}});
+
+        let result2 = await userRoot.get("/savedPosts");
+
+        let ids = result2.data.result.ids;
+
+        if (ids == null) {
+            renderPosts(posts, []);
+        }
+        else {
+            renderPosts(posts, ids);
+        }
+    }
+    else {
+        renderPosts(posts, []);
+        $(".save").remove();
+    }
+
+    $(".save").on("click", savePost);
+    $(".unsave").on("click", unsavePost);
 }
 
-const renderPosts = function (posts) {
+const renderPosts = function (posts, ids) {
     for (let i = 0; i < posts.length; i++) {
         posts[i].id = i;
-        $("#posts").append(renderPost(posts[i]));
+        $("#posts").append(renderPost(posts[i], ids.includes(i + "")));
     }
 }
 
-const renderPost = function (post) {
+const renderPost = function (post, isSaved) {
     let postDiv = document.createElement("div");
     postDiv.setAttribute("class", "post");
     postDiv.setAttribute("id", post.id);
@@ -43,6 +65,18 @@ const renderPost = function (post) {
     postFooter.setAttribute("class", "post-footer");
     postFooter.innerHTML = "<a href='?post="+post.id+"'>view comments</a>";
 
+    let like = document.createElement("input");
+    like.setAttribute("type", "image");
+    like.style.height = "12px";
+    if (isSaved) {
+        console.log(post.id + " is saved");
+        like.setAttribute("src", "heart2.png"); like.setAttribute("class", "unsave");
+    }
+    else { like.setAttribute("src", "heart.png"); like.setAttribute("class", "save"); }
+    like.style.margin = "-1px 10px";
+
+    postFooter.appendChild(like);
+
     postDiv.appendChild(postHeader);
     postDiv.appendChild(postCenter);
     postDiv.appendChild(postFooter);
@@ -53,7 +87,8 @@ const renderPost = function (post) {
 const loadSinglePost = async function(id) {
     let result1 = await publicRoot.get('/blog');
     let posts = result1.data.result.posts;
-    $("#posts").append(renderPost(posts[id]));
+    $("#posts").append(renderPost(posts[id], false));
+    $("#undefined").attr("id", id); //whatever
 
     if (window.localStorage.getItem("jwt") == null) {
         let commentsDiv = document.createElement("div");
@@ -107,7 +142,7 @@ const renderCommentsSection = function (comments) {
 
     commentsDiv.appendChild(commentTitle);
 
-    for (let i = 0; i < comments.length; i++) {
+    for (let i = comments.length-1; i >= 0; i--) {
         commentsDiv.appendChild(renderComment(comments[i]));
     }
 
@@ -219,6 +254,51 @@ const postComment = async function(event) {
             signature: signature
         },
         type: "merge"
+    });
+
+    window.location.reload();
+}
+
+const savePost = async function(event) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+
+    let postID = event.target.closest(".post").id;
+
+    let jwt = window.localStorage.getItem("jwt");
+    const userRoot = new axios.create({ baseURL: "http://localhost:3000/user", headers: {"Authorization": "Bearer " + jwt}});
+
+    await userRoot.post("/savedPosts/ids", {
+        data: postID,
+        type: "merge"
+    });
+
+    window.location.reload();
+}
+
+const unsavePost = async function(event) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+
+    let postID = event.target.closest(".post").id;
+
+    let jwt = window.localStorage.getItem("jwt");
+    const userRoot = new axios.create({ baseURL: "http://localhost:3000/user", headers: {"Authorization": "Bearer " + jwt}});
+
+    let result = await userRoot.get("/savedPosts");
+
+    let ids = result.data.result.ids;
+
+    let index = ids.indexOf(postID);
+
+    if (index >= 0) {
+        ids.splice(index, 1);
+    }
+
+    await userRoot.post("/savedPosts", {
+        data: {
+            ids: ids
+        }
     });
 
     window.location.reload();
