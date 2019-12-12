@@ -120,6 +120,14 @@
         color: gray;
     }
 
+    .comments .content {
+        margin: 10px;
+    }
+
+    .comments .content .field {
+        margin: 5px 0px;
+    }
+
     .comment {
         background-color: #deebf5;
         margin: 10px 10px 10px 10px;

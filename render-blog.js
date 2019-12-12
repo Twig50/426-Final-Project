@@ -41,7 +41,7 @@ const renderPost = function (post) {
 
     let postFooter = document.createElement("div");
     postFooter.setAttribute("class", "post-footer");
-    postFooter.innerHTML = "<a href='?post="+post.id+"'>"+post.commentCount + " comments</a>";
+    postFooter.innerHTML = "<a href='?post="+post.id+"'>view comments</a>";
 
     postDiv.appendChild(postHeader);
     postDiv.appendChild(postCenter);
@@ -83,6 +83,7 @@ const loadSinglePost = async function(id) {
     let comments = result2.data.result.comments.filter(comment => comment.parentID == id);
     
     $(".post-footer").replaceWith(renderCommentsSection(comments));
+    $("#post-comment").on("click", postComment);
 }
 
 const renderCommentsSection = function (comments) {
@@ -97,6 +98,8 @@ const renderCommentsSection = function (comments) {
         commentsDiv.appendChild(hiddenComments);
         return commentsDiv;
     }
+
+    commentsDiv.appendChild(renderCommentBox());
 
     let commentTitle = document.createElement("div");
     commentTitle.setAttribute("class", "comment-title");
@@ -134,5 +137,92 @@ const renderComment = function (comment) {
 
     return commentDiv;
 }
+
+const renderCommentBox = function() {
+    let commentBoxDiv = document.createElement("div");
+    commentBoxDiv.setAttribute("class", "content");
+
+    let commentForm = document.createElement("form");
+    commentForm.setAttribute("id", "comment-form");
+
+    let textbox = document.createElement("input");
+    textbox.setAttribute("id", "comment-box");
+    textbox.setAttribute("class", "textarea");
+    textbox.setAttribute("type", "textarea");
+    textbox.setAttribute("name", "comment-box");
+    textbox.setAttribute("placeholder", "Write a comment!");
+
+    let field = document.createElement("div");
+    field.setAttribute("class", "field");
+
+    let control = document.createElement("div");
+    control.setAttribute("class", "control");
+
+    let button = document.createElement("button");
+    button.setAttribute("id", "post-comment");
+    button.setAttribute("type", "submit");
+    button.innerText = "Post Comment";
+
+    let message = document.createElement("p");
+    message.setAttribute("id", "message");
+
+    
+    control.appendChild(button);
+    field.appendChild(control);
+    commentForm.appendChild(textbox);
+    commentForm.appendChild(field);
+    commentForm.appendChild(message);
+    commentBoxDiv.appendChild(commentForm);
+
+    return commentBoxDiv;
+}
+
+
+
+
+const postComment = async function(event) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+
+    $("#message").html('');
+
+    let body = document.getElementById("comment-box").value;
+
+    if (body == "") {
+        $("#message").html('<span class="has-text-danger">Comment cannot be empty.</span>');
+        return;
+    }
+
+    let jwt = window.localStorage.getItem("jwt");
+
+    let response = await axios({
+        method: 'GET',
+        url: "http://localhost:3000/account/status",
+        headers: { "Authorization": "Bearer " + jwt }
+    }).catch(function(error) {
+        console.log('Error fetching user data:', error);
+        return;
+    });
+    
+    let username = response.data.user.name;
+    let signature = response.data.user.data.signature;
+    let urlParams = new URLSearchParams(window.location.search);
+    let id = parseInt(urlParams.get("post"));
+
+    const privateRoot = new axios.create({ baseURL: "http://localhost:3000/private", headers: {"Authorization": "Bearer " + jwt}});
+
+    await privateRoot.post('/blogComments/comments', {
+        data: {
+            parentID: id,
+            author: username,
+            body: body,
+            signature: signature
+        },
+        type: "merge"
+    });
+
+    window.location.reload();
+}
+
 
 $(function() { loadPosts(); });
