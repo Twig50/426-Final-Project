@@ -87,6 +87,152 @@
         color: gray;
     }
 
+    .post-footer a {
+        color: #62b8ee;
+    }
+
+    .post-footer a:hover {
+        color: gray;
+    }
+
+    .comments {
+        background-color: white;
+        padding: 5px 10px;
+        margin: 10px -10px -10px -10px;
+        border: 0px;
+        border-top: 1px;
+        border-style: dashed;
+        border-color: lightgray;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    
+    .comment-title {
+        font-family: "Source Sans Pro", sans-serif;
+        margin: 2px 10px;
+        font-size: 20px;
+        font-style: italic;
+    }
+    .comment-title a {
+        color: #62b8ee;
+    }
+    .comment-title a:hover {
+        color: gray;
+    }
+
+    .comment {
+        background-color: #deebf5;
+        margin: 10px 10px 10px 10px;
+        padding: 10px 20px;
+        border: 1px;
+        border-style: solid;
+        border-radius: 5px;
+    }
+    .comment-header {
+        background-color: rgb(98, 184, 238);
+        margin: -10px -20px 10px -20px;
+        padding: 8px 15px 5px 15px;
+        color: white;
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 500;
+        text-shadow: 0px 0px 5px #142f47BB;
+        font-size: 18px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        box-shadow: 0px 0px 3px #142f47AA inset;
+    }
+    .comment-center {
+        font-family: "Source Sans Pro", sans-serif;
+    }
+    .comment hr {
+        
+        border: 1px;
+        border-style: solid;
+        border-color: gray;
+        margin: 8px 0px;
+    }
+    .comment-footer {
+        font-style: italic;
+        text-align: right;
+        color: gray;
+    }
+
+    .register {
+        background-color: white;
+        box-shadow: 1px 1px 5px #00000055;
+        width:100%;
+        height: auto;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 2% 0px;
+
+    }
+
+    .register-header {
+        background-color: rgb(98, 184, 238);
+        margin: -10px -10px 5px -10px;
+        padding: 8px 15px 5px 15px;
+        color: white;
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 500;
+        text-shadow: 0px 0px 5px #142f47BB;
+        font-size: 30px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        box-shadow: 0px 0px 3px #142f47AA inset;
+    }
+
+    .register-center {
+        padding: 10px;
+        
+        font-family: "Source Sans Pro", sans-serif;
+    }
+
+    .account {
+        background-color: white;
+        box-shadow: 1px 1px 5px #00000055;
+        width:100%;
+        height: auto;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 2% 0px;
+
+    }
+
+    .account-header {
+        background-color: rgb(98, 184, 238);
+        margin: -10px -10px 5px -10px;
+        padding: 8px 15px 5px 15px;
+        color: white;
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 500;
+        text-shadow: 0px 0px 5px #142f47BB;
+        font-size: 30px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        box-shadow: 0px 0px 3px #142f47AA inset;
+    }
+
+    .account-center {
+        padding: 10px;
+        
+        font-family: "Source Sans Pro", sans-serif;
+    }
+
+    .account-footer {
+        background-color: white;
+        padding: 2px 10px;
+        margin: 10px -10px -10px -10px;
+        border: 0px;
+        border-top: 1px;
+        border-style: dashed;
+        border-color: lightgray;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        text-align: right;
+        color: gray;
+    }
+
     h1 {
         color: white;
         font-family: "Source Sans Pro", sans-serif;
@@ -115,6 +261,9 @@
     }
     #account-tab a {
         color: #62b8ee;
+    }
+    #account-tab a:hover {
+        color: white;
     }
 
     #character-model {

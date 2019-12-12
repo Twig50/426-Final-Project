@@ -27,34 +27,45 @@
                 <a class="sidebar-menu-item">tracks</a>
                 <br>
                 <a class="sidebar-menu-item" href="blog.html">blog</a>
-                <br>
-                <a class="sidebar-menu-item" href="login.html">login</a>
             </div>
             <div id=sidebar-extension></div>
         </div>
 
-        <div id="rootRegister"> 
-                <div class="post">
-                    <div class="post-header">Fill out the fields below...</div>
-                    <div class="post-center">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        <div id="root"> 
+                <div class="register">
+                    <div class="register-header">Fill out the fields below...</div>
+                    <div class="register-center">
+                            <div class="content">
+                                <form id="register-form">
+                                    <input id="login" type="text" name="login" title="login" placeholder="Login" required autofocus>
+                                    <br>
+                                    <input id="password" type="password" name="password" title="password" placeholder="Password" required>
+                                    <br>
+                                    <input id="confirm-password" type="password" name="confirm-password" title="confirm-password" placeholder="Confirm Password" required>
+                                    <div class="field">
+                                        <div class="control">
+                                            <br>
+                                            <button id="submitRegister" type="submit" class="btn btn-primary">Register</button>
+                                        </div>
+                                    </div>
+            
+                                    <div class="field">
+                                        <div class="control">
+                                            <p id="message"></p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>        
                     </div>
-                    <div class="post-footer">test1.2</div>
-                </div>
-                <div class="post">
-                    <div class="post-header">Title2</div>
-                    <div class="post-center">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                    </div>
-                    <div class="post-footer">test2.2</div>
                 </div>
         </div>
 
         <div id="account-tab">
             <a href="login.html">login</a> or <a href="register.html">register</a>
         </div>
-
         <script src="node_modules/jquery/dist/jquery.js"></script>
-        <script src="render-blog.js"></script>
+        <script src="node_modules/axios/dist/axios.js"></script>
+        <script src="register.js" type="module"></script>
     </body>
 </html>

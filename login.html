@@ -14,40 +14,58 @@
     </head>
 
     <body>
-        <div id="login">
-            <div class="login-card">
-                <div class="card-title">
-                    <h1>CQBeats Login</h1>
-                </div>
-                <div>
-                    The following fields are required...
-                </div>
-                <div class="content">
-                    <form id="login-form">
-                        <input id="email" type="email" name="email" title="email" placeholder="Email" required autofocus>
-                        <br>
-                        <input id="password" type="password" name="password" title="password" placeholder="Password" required>
-                        <br>
-                        
-                        <div class="field">
-                            <div class="control">
-                                <button id="submitLogin" type="submit" class="btn btn-primary">Login</button>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="control">
-                                <p id="message"></p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+        <div id=sidebar>
+            <!--<a href="index.html"><img id=title src="logo.png" alt="cqbeats"></a>-->
+            <a id="title" href="index.html">c qb ea t s</a>
+            <div id=sidebar-menu>
+                <a class="sidebar-menu-item" href="index.html">main</a> 
+                <br>
+                <a class="sidebar-menu-item">about</a>
+                <br>
+                <a class="sidebar-menu-item">characters</a>
+                <br>
+                <a class="sidebar-menu-item">tracks</a>
+                <br>
+                <a class="sidebar-menu-item" href="blog.html">blog</a>
             </div>
+            <div id=sidebar-extension></div>
         </div>
+
+        <div id="root"> 
+                <div class="register">
+                    <div class="register-header">Fill out the fields below...</div>
+                    <div class="register-center">
+                            <div class="content">
+                                <form id="login-form">
+                                    <input id="login" type="text" name="login" title="login" placeholder="Login" required autofocus>
+                                    <br>
+                                    <input id="password" type="password" name="password" title="password" placeholder="Password" required>
+                                    <div class="field">
+                                        <div class="control">
+                                            <br>
+                                            <button id="submitLogin" type="submit" class="btn btn-primary">Login</button>
+                                        </div>
+                                    </div>
+            
+                                    <div class="field">
+                                        <div class="control">
+                                            <p id="message"></p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>        
+                    </div>
+                </div>
+        </div>
+
+        <div id="account-tab">
+                <a href="login.html">login</a> or <a href="register.html">register</a>
+        </div>
+
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script src="node_modules/axios/dist/axios.js"></script>
         <script src="login.js" type="module"></script>
-
-    
-
     </body>
 </html>
     

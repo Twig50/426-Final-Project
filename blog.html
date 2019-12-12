@@ -27,8 +27,6 @@
                 <a class="sidebar-menu-item">tracks</a>
                 <br>
                 <a class="sidebar-menu-item" href="blog.html" style="font-size: 45px; letter-spacing: 10px;">blog</a>
-                <br>
-                <a class="sidebar-menu-item" href="login.html">login</a>
             </div>
             <div id=sidebar-extension></div>
         </div>
@@ -40,14 +38,21 @@
                     <div class="post-center">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                     </div>
-                    <div class="post-footer">test1.2</div>
-                </div>
-                <div class="post">
-                    <div class="post-header">Title2</div>
-                    <div class="post-center">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    <div class="comments">
+                        <div class="comment-title">2 comments</div>
+                        <div class="comment"> 
+                            <div class="comment-header">User123</div>
+                            <div class="comment-center">What's with this lorem ipsum junk?</div>
+                            <hr>
+                            <div class="comment-footer">"This is a test signature."</div>
+                        </div>
+                        <div class="comment"> 
+                            <div class="comment-header">User456</div>
+                            <div class="comment-center">No idea.</div>
+                            <hr>
+                            <div class="comment-footer">"This is a test signature, too."</div>
+                        </div>
                     </div>
-                    <div class="post-footer">test2.2</div>
                 </div>
             </div>
         </div>
@@ -57,6 +62,8 @@
         </div>
 
         <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script src="node_modules/axios/dist/axios.js"></script>
         <script src="render-blog.js"></script>
+        <script src="replace-login-tab.js"></script>
     </body>
 </html>
